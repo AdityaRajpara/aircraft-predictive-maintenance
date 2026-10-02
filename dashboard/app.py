@@ -81,7 +81,7 @@ with tab_maint:
     st.subheader(f"{len(table)} engines need maintenance")
     st.caption("Latest prediction per engine, lowest remaining useful life first.")
     st.dataframe(
-        table.style.apply(
+        table.style.format({"predicted_rul": "{:.1f}"}).apply(
             lambda r: [f"color: {STATUS_COLORS[r['health_status']]}; font-weight: 600"
                        if c == "health_status" else "" for c in r.index],
             axis=1,
