@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.env
+
+# Project data & artifacts
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+models/*.pkl
+models/*.pt
+*.duckdb
+*.parquet
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

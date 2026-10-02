@@ -1,0 +1,17 @@
+numpy
+pandas
+scipy
+scikit-learn
+lightgbm
+torch
+matplotlib
+seaborn
+pyyaml
+duckdb
+pyarrow
+streamlit
+plotly
+jupyter
+pytest
+ruff
+pre-commit
