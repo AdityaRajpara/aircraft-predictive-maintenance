@@ -1,0 +1,7 @@
+{
+  "model": "lightgbm",
+  "artifact": "models/baseline_lgbm_FD001.pkl",
+  "selected_by": "test_rmse",
+  "test_rmse": 15.007500036970457,
+  "test_nasa_score": 321.94241496900014
+}
