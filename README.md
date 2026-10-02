@@ -105,9 +105,21 @@ queue** (Critical/Warning engines ranked by lowest predicted RUL), and **Engine
 drill-down** (predicted vs. true RUL curve with the band thresholds, plus
 selectable sensor trends). Screenshots: TODO, add to `docs/images/`.
 
+## Quality and packaging
+
+- **CI:** `.github/workflows/ci.yml` runs `ruff` and `pytest` on every push and
+  PR (Python 3.9 and 3.11). Tests use synthetic data, so CI needs no datasets.
+- **Pre-commit:** `pip install pre-commit && pre-commit install` (ruff,
+  whitespace, large-file checks).
+- **Docker:** `docker build -t apm .` builds the dashboard image; mount `data/`
+  and `models/` at run time (see comments in the `Dockerfile`).
+- **Dependencies:** `requirements-app.txt` (pipeline + dashboard),
+  `requirements-dev.txt` (+ test/lint tools), `requirements.txt` (full research
+  environment incl. PyTorch and Jupyter).
+
 ## Status
 
-Phases 0-8 complete: data cleaning, EDA, feature pipeline, gradient boosting baseline, LSTM comparison, health bands, DuckDB batch scoring, Streamlit dashboard.
+Phases 0-9 complete: data cleaning, EDA, feature pipeline, gradient boosting baseline, LSTM comparison, health bands, DuckDB batch scoring, Streamlit dashboard, CI and packaging.
 
 ## License
 

@@ -1,0 +1,11 @@
+# Runtime for the pipeline (features, baseline, batch scoring) and dashboard.
+# Excludes torch/jupyter; use requirements.txt for the full research environment.
+numpy
+pandas
+scikit-learn
+lightgbm
+pyyaml
+duckdb
+pyarrow
+streamlit
+plotly
