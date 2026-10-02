@@ -93,9 +93,21 @@ make predict   # features -> baseline model -> scored table in DuckDB
 model_version, scored_at`, plus `true_rul` for the dashboard). Re-running
 replaces the table. `model_version` includes a hash of the model file.
 
+## Dashboard
+
+```bash
+make predict
+streamlit run dashboard/app.py
+```
+
+Three tabs: **Fleet overview** (engine counts by health band), **Maintenance
+queue** (Critical/Warning engines ranked by lowest predicted RUL), and **Engine
+drill-down** (predicted vs. true RUL curve with the band thresholds, plus
+selectable sensor trends). Screenshots: TODO, add to `docs/images/`.
+
 ## Status
 
-Phases 0-7 complete: data cleaning, EDA, feature pipeline, gradient boosting baseline, LSTM comparison, health bands, DuckDB batch scoring.
+Phases 0-8 complete: data cleaning, EDA, feature pipeline, gradient boosting baseline, LSTM comparison, health bands, DuckDB batch scoring, Streamlit dashboard.
 
 ## License
 
