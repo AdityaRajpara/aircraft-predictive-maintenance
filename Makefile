@@ -1,4 +1,4 @@
-.PHONY: setup data features baseline lstm lint test clean
+.PHONY: setup data features baseline lstm predict lint test clean
 
 setup:
 	python3 -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt
@@ -14,6 +14,9 @@ baseline: features
 
 lstm: features
 	python -m src.models.lstm FD001
+
+predict: baseline
+	python -m src.predict FD001
 
 lint:
 	ruff check .

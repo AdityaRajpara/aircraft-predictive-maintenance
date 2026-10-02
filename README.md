@@ -81,9 +81,21 @@ the last cycle of the 100 test engines.
 Critical/Warning and ranked by lowest RUL. On the FD001 test set the baseline
 puts 14 engines in Critical, 18 in Warning, 17 in Watch and 51 in Healthy.
 
+## Batch scoring
+
+```bash
+make predict   # features -> baseline model -> scored table in DuckDB
+```
+
+`src/predict.py` scores every cycle of every test engine with the model named in
+`models/best_model.json` and writes `data/processed/predictions.duckdb`
+(table `predictions`: `engine_id, cycle, predicted_rul, health_status,
+model_version, scored_at`, plus `true_rul` for the dashboard). Re-running
+replaces the table. `model_version` includes a hash of the model file.
+
 ## Status
 
-Phases 0-6 complete: data cleaning, EDA, feature pipeline, gradient boosting baseline, LSTM comparison, health bands.
+Phases 0-7 complete: data cleaning, EDA, feature pipeline, gradient boosting baseline, LSTM comparison, health bands, DuckDB batch scoring.
 
 ## License
 
