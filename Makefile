@@ -1,10 +1,13 @@
-.PHONY: setup data lint test clean
+.PHONY: setup data features lint test clean
 
 setup:
 	python3 -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt
 
 data:
 	python -m src.data.load FD001
+
+features: data
+	python -m src.features.build FD001
 
 lint:
 	ruff check .
