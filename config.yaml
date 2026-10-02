@@ -1,0 +1,10 @@
+# Health bands on predicted RUL (cycles). An engine falls in the first band whose
+# upper bound it is strictly below; anything >= the last bound is Healthy.
+health:
+  thresholds:
+    critical: 20   # RUL < 20
+    warning: 50    # 20 <= RUL < 50
+    watch: 80      # 50 <= RUL < 80
+                   # RUL >= 80 -> Healthy
+  # Statuses that trigger a maintenance action
+  maintenance_statuses: [Critical, Warning]
