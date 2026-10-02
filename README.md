@@ -106,7 +106,12 @@ make dashboard      # streamlit run dashboard/app.py
 - **Engine drill-down:** predicted vs. true RUL curve with band thresholds, and
   selectable sensor trends.
 
-*(Screenshots to be added in `docs/images/`.)*
+![Fleet overview](docs/images/dashboard_fleet.png)
+![Maintenance queue](docs/images/dashboard_maintenance.png)
+![Engine drill-down](docs/images/dashboard_engine.png)
+
+Screenshots are generated with `python scripts/capture_screenshots.py`
+(dev-only; needs `pip install playwright && playwright install chromium`).
 
 ## Setup and run
 
