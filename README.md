@@ -41,9 +41,22 @@ source .venv/bin/activate
 make test
 ```
 
+## Results
+
+Evaluated on the last observed cycle of each of the 100 FD001 test engines
+(true RUL from `RUL_FD001.txt`). Validation is a 20% hold-out split by engine.
+
+| Model | Test RMSE | Test NASA score | Notes |
+|-------|-----------|-----------------|-------|
+| LightGBM baseline (77 features, RUL cap 125) | 15.01 | 321.9 | `make baseline` |
+
+Validation RMSE over all cycles is 11.03. Validation RMSE on last cycles is
+not comparable: training engines run to failure, so their last cycle (RUL 0)
+is far easier than the truncated test engines.
+
 ## Status
 
-Phase 0 complete (repo skeleton). See the roadmap for upcoming phases.
+Phases 0-4 complete: data cleaning, EDA, feature pipeline, gradient boosting baseline.
 
 ## License
 
