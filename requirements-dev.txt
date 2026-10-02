@@ -1,0 +1,4 @@
+-r requirements-app.txt
+pytest
+ruff
+pre-commit
