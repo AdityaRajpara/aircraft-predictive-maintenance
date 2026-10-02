@@ -73,9 +73,17 @@ the last cycle of the 100 test engines.
   models are kept in `models/`. The LSTM is not tuned; there is likely headroom
   (longer windows, feature inputs, ensembling).
 
+## Health status and maintenance
+
+`src/health/status.py` maps predicted RUL to bands using thresholds in
+`config.yaml` (Critical < 20, Warning < 50, Watch < 80, otherwise Healthy).
+`engines_needing_maintenance` returns each engine's latest reading, filtered to
+Critical/Warning and ranked by lowest RUL. On the FD001 test set the baseline
+puts 14 engines in Critical, 18 in Warning, 17 in Watch and 51 in Healthy.
+
 ## Status
 
-Phases 0-5 complete: data cleaning, EDA, feature pipeline, gradient boosting baseline, LSTM comparison.
+Phases 0-6 complete: data cleaning, EDA, feature pipeline, gradient boosting baseline, LSTM comparison, health bands.
 
 ## License
 
