@@ -23,3 +23,13 @@ models/*.pt
 .DS_Store
 .vscode/
 .idea/
+.venv/
+__pycache__/
+.env
+.DS_Store
+.ruff_cache/
+.pytest_cache/
+.ipynb_checkpoints/
+data/raw/
+*.duckdb
+models/*.pkl
