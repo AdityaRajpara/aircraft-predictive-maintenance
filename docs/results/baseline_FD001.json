@@ -1,0 +1,10 @@
+{
+  "model": "lightgbm",
+  "subset": "FD001",
+  "best_iteration": 1201,
+  "n_features": 77,
+  "val_rmse_all_cycles": 11.032180673720616,
+  "val_rmse_last_cycle": 2.9767976455368803,
+  "test_rmse": 15.007500036970457,
+  "test_nasa_score": 321.94241496900014
+}
