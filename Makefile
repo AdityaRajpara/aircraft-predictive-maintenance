@@ -1,4 +1,4 @@
-.PHONY: setup data features baseline lstm predict lint test clean
+.PHONY: setup data features baseline lstm predict dashboard lint test clean
 
 setup:
 	python3 -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt
@@ -17,6 +17,9 @@ lstm: features
 
 predict: baseline
 	python -m src.predict FD001
+
+dashboard:
+	streamlit run dashboard/app.py
 
 lint:
 	ruff check .
