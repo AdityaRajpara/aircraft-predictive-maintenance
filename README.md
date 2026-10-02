@@ -49,14 +49,33 @@ Evaluated on the last observed cycle of each of the 100 FD001 test engines
 | Model | Test RMSE | Test NASA score | Notes |
 |-------|-----------|-----------------|-------|
 | LightGBM baseline (77 features, RUL cap 125) | 15.01 | 321.9 | `make baseline` |
+| LSTM (2x64, 30-cycle windows, 15 sensors) | 15.18 | 431.4 | `make lstm` |
 
 Validation RMSE over all cycles is 11.03. Validation RMSE on last cycles is
 not comparable: training engines run to failure, so their last cycle (RUL 0)
 is far easier than the truncated test engines.
 
+## Model comparison
+
+Both models use the same engine-level train/validation split and are scored on
+the last cycle of the 100 test engines.
+
+- **RMSE is effectively tied** (15.01 vs 15.18); with only 100 test engines the
+  gap is within noise.
+- **NASA score favours LightGBM** (322 vs 431). The score penalises late
+  predictions (over-estimating remaining life) exponentially, so the LSTM makes
+  more of those costly errors on some engines.
+- The LSTM sees only the raw normalised sensors; LightGBM gets engineered
+  rolling-mean/std/slope and baseline-delta features. That hand-built history
+  appears to be worth about as much as the sequence model's learned memory on
+  a dataset this small (FD001, 100 training engines).
+- **Selected model: LightGBM** (see `models/best_model.json`). Both trained
+  models are kept in `models/`. The LSTM is not tuned; there is likely headroom
+  (longer windows, feature inputs, ensembling).
+
 ## Status
 
-Phases 0-4 complete: data cleaning, EDA, feature pipeline, gradient boosting baseline.
+Phases 0-5 complete: data cleaning, EDA, feature pipeline, gradient boosting baseline, LSTM comparison.
 
 ## License
 

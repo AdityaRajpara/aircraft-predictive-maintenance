@@ -1,0 +1,9 @@
+{
+  "model": "lstm",
+  "subset": "FD001",
+  "window": 30,
+  "n_features": 15,
+  "val_rmse_all_cycles": 11.542171031624942,
+  "test_rmse": 15.183706071430404,
+  "test_nasa_score": 431.38162864568324
+}
